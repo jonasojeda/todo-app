@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Todo = ({todo, todoDelete}) => {
-  console.log(todo.id)
+const Todo = ({todo, todoDelete,todoToogleChange}) => {
   
   return (
     
@@ -10,7 +9,11 @@ const Todo = ({todo, todoDelete}) => {
             <div className='card-body'>
                 <h3 className='card-title'>
                     {todo.title}
-                    <button className='btn btn-sm btn-outline-success ml-2'>Terminar</button>
+                    <button
+                      onClick={()=>todoToogleChange(todo.id)}
+                      className= {todo.completed? 'btn btn-sm btn-success ml-2':'btn btn-sm btn-outline-success ml-2'} >
+                        {todo.completed?'Terminado': 'Terminar' }
+                      </button>
                 </h3>
                 <p className='card-text'>
                     {todo.description}

@@ -3,7 +3,7 @@ import Todo from '../Todo/Todo'
 
 
 
-const TodoList = ({todos, todoDelete}) => {
+const TodoList = ({todos, todoDelete, todoToogleChange}) => {
     
   return (
     <div>
@@ -12,6 +12,7 @@ const TodoList = ({todos, todoDelete}) => {
            return <Todo 
            todo={todo} 
            todoDelete={todoDelete}
+           todoToogleChange={todoToogleChange}
            key = {todo.id}/>
         })}
     </div>

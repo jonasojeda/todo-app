@@ -33,6 +33,24 @@ function Home() {
     setTodos(changesTodos);
   }
 
+  const todoToogleChange = (todoId) => {
+    const changedTodos = todos.map(todo => {
+      const todoEdit = {
+        ...todo,
+        completed: !todo.completed
+      }
+
+      if(todo.id === todoId){
+        return todoEdit
+      }
+      else{
+        return todo
+      }
+    })
+
+    setTodos(changedTodos)
+  }
+
   return (
     <div className='container mt-4'>
       <div className='row'>
@@ -40,6 +58,7 @@ function Home() {
           <TodoList 
           todos={todos}
           todoDelete={todoDelete}
+          todoToogleChange={todoToogleChange}
           
           />
         </div>
