@@ -1,14 +1,16 @@
 import React from 'react'
+import TodoForm from '../../components/TodoForm/TodoForm'
+import TodoList from '../../components/TodoList/TodoList'
 
 function Home() {
   return (
     <div className='container mt-4'>
       <div className='row'>
         <div className='col8'>
-          <h1>Lista de tareas</h1>
+          <TodoList/>
         </div>
         <div className='col-4'>
-          <h1>Formulario</h1>
+          <TodoForm/>
         </div>
       </div>
     </div>
