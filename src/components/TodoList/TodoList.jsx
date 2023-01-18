@@ -1,24 +1,19 @@
 import React from 'react'
+import Todo from '../Todo/Todo'
 
-const TodoList = () => {
+
+
+const TodoList = ({todos, todoDelete}) => {
+    
   return (
     <div>
         <h1>TodoList</h1>
-        <div className='card'>
-            <div className='card-body'>
-                <h3 className='card-title'>
-                    titulo Tarea
-                    <button className='btn btn-sm btn-outline-success'>Terminar</button>
-                </h3>
-                <p className='card-text'>
-                    descripcion tarea
-                </p>
-                <div className='d-flex justify-content-end'>
-                    <button className='btn btn-sm btn-outline-primary mr-2'>Editar</button>
-                    <button className='btn btn-sm btn-outline-danger'>Eliminar</button>
-                </div>
-            </div>
-        </div>
+        {todos.map(todo =>{ 
+           return <Todo 
+           todo={todo} 
+           todoDelete={todoDelete}
+           key = {todo.id}/>
+        })}
     </div>
   )
 }
