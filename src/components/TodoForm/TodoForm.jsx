@@ -5,10 +5,9 @@ const initialFormValues={
   description:''
 }
 
-const TodoForm = () => {
+const TodoForm = ({todoAdd}) => {
   const [formValues, setFormValues] = useState(initialFormValues)
   const {title, description}= formValues
-
   const handleInputChange = (e)=>{
 
     const changedFormValue = {
@@ -19,11 +18,19 @@ const TodoForm = () => {
     setFormValues(changedFormValue)
   }
 
+  const handleSubmit = (e)=>{
+    e.preventDefault(); // Evita que recargue la pagina
+
+    //Agregar tarea
+    todoAdd(formValues);
+    setFormValues(initialFormValues)
+  }
+
   
   return (
     <div>
         <h1>Nueva Tarea</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input 
             type="text" 
             placeholder='Titulo' 
