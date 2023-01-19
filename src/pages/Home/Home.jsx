@@ -59,8 +59,8 @@ function Home() {
     }
 
     const changedTodos = [
-      ...todos,
-      newTodo
+      newTodo,
+      ...todos
     ]
 
     setTodos(changedTodos);
