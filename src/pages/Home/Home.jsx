@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TodoForm from '../../components/TodoForm/TodoForm'
 import TodoList from '../../components/TodoList/TodoList'
 
@@ -23,12 +23,20 @@ const initialTodos =[
   completed : true
   }]
 
+  const localTodos = JSON.parse(localStorage.getItem('todos')) //aqui se almacenan las todos previas al refrescar la pagina
 function Home() {
 
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = useState(localTodos || []);
+  const [todoEdit, setTodoEdit] = useState(null)
 
+  useEffect(()=>{ //Utilizamos el useEffect para escuchar a las todos y guardarlas en el localStorage
+    localStorage.setItem('todos',JSON.stringify(todos))
+  },[todos])
   
   const todoDelete = (todoId) => {
+    if(todoEdit && todoId === todoEdit.id){
+      setTodoEdit(null);
+    }
     const changesTodos = todos.filter(todo => todo.id !== todoId)
     setTodos(changesTodos);
   }
@@ -66,6 +74,15 @@ function Home() {
     setTodos(changedTodos);
   } 
 
+  const todoUpdate = (todoEdit)=>{
+    const changedTodos = todos.map(todo => (
+      todo.id === todoEdit.id
+      ? todoEdit
+      :todo
+    ))
+    setTodos(changedTodos)
+  }
+
   return (
     <div className='container mt-4'>
       <div className='row'>
@@ -74,12 +91,16 @@ function Home() {
             todos={todos}
             todoDelete={todoDelete}
             todoToogleChange={todoToogleChange}
+            setTodoEdit = {setTodoEdit}
           
           />
         </div>
         <div className='col-4'>
           <TodoForm
+            todoUpdate={todoUpdate}
+            todoEdit={todoEdit}
             todoAdd={todoAdd}
+            setTodoEdit = {setTodoEdit}
           />
         </div>
       </div>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const initialFormValues={
   title: '',
   description:''
 }
 
-const TodoForm = ({todoAdd}) => {
+const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
   const [formValues, setFormValues] = useState(initialFormValues)
   const {title, description}= formValues
   const [errors, setErrors]= useState(null)
@@ -19,6 +19,15 @@ const TodoForm = ({todoAdd}) => {
 
     setFormValues(changedFormValue)
   }
+
+  useEffect(()=>{
+    if(todoEdit){
+      setFormValues(todoEdit)
+    }else{
+      setFormValues(initialFormValues)
+    }
+    
+  },[todoEdit])
 
   const handleSubmit = (e)=>{
     e.preventDefault(); // Evita que recargue la pagina
@@ -34,9 +43,19 @@ const TodoForm = ({todoAdd}) => {
       return ;
     }
 
-    todoAdd(formValues);
-    setFormValues(initialFormValues)
-    setSuccessMessage('Tarea agregada con exito')
+    if(todoEdit){
+      //Actualizar Todo
+      todoUpdate(formValues)
+      setSuccessMessage('Tarea actualizada con exito')
+    }else{
+      todoAdd(formValues);
+      setSuccessMessage('Tarea agregada con exito')
+      
+    }
+
+    
+    
+    
     setTimeout(()=>{
       setSuccessMessage(null)
     },5000)
@@ -44,25 +63,10 @@ const TodoForm = ({todoAdd}) => {
 
   }
 
-  // const handleError= ()=>{
-
-  //   const error = []
-
-  //   if(!formValues.title){
-  //     error.push({key:0,message:'Ingres el titulo'})
-  //   }
-
-  //   if(!formValues.description){
-  //     error.push({key:0,message:'Ingres la descripcion'})
-  //   }
-
-  //   setErrors(error)
-  // }
-
   
   return (
     <div>
-        <h1>Nueva Tarea</h1>
+        <h1>{todoEdit?'Editar tarea':'Nueva Tarea'}</h1>
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
@@ -94,8 +98,16 @@ const TodoForm = ({todoAdd}) => {
           }
           <button 
             className='btn btn-primary btn-block mt-2'
-          >Agregar tarea
+          >{todoEdit?'Actualizar tarea':'Agregar tarea'}
           </button>
+
+          {todoEdit &&
+            <button
+            onClick={()=>{setTodoEdit(null)}} 
+            className='btn btn-warning mt-2 btn-block'>
+              Cancelar edicion
+            </button>
+          }
         </form>
     </div>
   )
