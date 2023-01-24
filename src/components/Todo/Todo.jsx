@@ -5,9 +5,9 @@ const Todo = ({todo, todoDelete,todoToogleChange,setTodoEdit}) => {
   return (
     
     <div>
-      <div className='card mt-2'>
-            <div className='card-body'>
-                <h3 className='card-title'>
+      <div>
+            <div>
+                <h3>
                     {todo.title}
                     <button
                       onClick={()=>todoToogleChange(todo.id)}

@@ -88,31 +88,35 @@ function Home() {
   }
 
   return (
-  <>
-    <Clock/>
-    <div className='container mt-4 '>
-    
-      <div className='row'>
-        <div className='col8'>
-          <TodoList 
-            todos={todos}
-            todoDelete={todoDelete}
-            todoToogleChange={todoToogleChange}
-            setTodoEdit = {setTodoEdit}
-          
-          />
-        </div>
-        <div className='col-4'>
-          <TodoForm
-            todoUpdate={todoUpdate}
-            todoEdit={todoEdit}
-            todoAdd={todoAdd}
-            setTodoEdit = {setTodoEdit}
-          />
-        </div>
-      </div>
+  <div className='home-card w-full h-full  lg:w-4/5 lg:h-4/5 lg:rounded-2xl lg:shadow-2xl'>
+
+    <div>
+      <Clock/>
     </div>
-  </>
+
+    <div className='' >
+    
+
+      <TodoList 
+        todos={todos}
+        todoDelete={todoDelete}
+        todoToogleChange={todoToogleChange}
+        setTodoEdit = {setTodoEdit}
+          
+      />
+
+        
+        
+      <TodoForm
+        todoUpdate={todoUpdate}
+        todoEdit={todoEdit}
+        todoAdd={todoAdd}
+        setTodoEdit = {setTodoEdit}
+      />
+    
+    </div>
+
+  </div>
   )
 }
 

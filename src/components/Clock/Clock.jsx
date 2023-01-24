@@ -21,9 +21,10 @@ const Clock = () => {
     setInterval(updateTime, 1000)
     setInterval(updateDates, 1000)
   return (
-    <div>
-        <h1>{dates}</h1>
-        <h3>{time}</h3>
+    <div className='mt-3 text-sm text-[#8ea6c8] flex justify-between items-center mb-7 mr-7 ml-7 max-sm:flex-col max-sm:justify-start '>
+        <p className='text-4xl'>{dates}</p>
+        <br className='hidden' />
+        <p className='text-3xl'>{time}</p>
         
     </div>
   )
