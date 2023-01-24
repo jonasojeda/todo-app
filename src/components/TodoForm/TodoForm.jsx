@@ -50,6 +50,7 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
     }else{
       todoAdd(formValues);
       setSuccessMessage('Tarea agregada con exito')
+      setFormValues(initialFormValues)
       
     }
 

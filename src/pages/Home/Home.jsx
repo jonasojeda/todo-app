@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import Clock from '../../components/Clock/Clock'
 import TodoForm from '../../components/TodoForm/TodoForm'
 import TodoList from '../../components/TodoList/TodoList'
+
+
+
 
 const initialTodos =[
   {
@@ -84,7 +88,10 @@ function Home() {
   }
 
   return (
-    <div className='container mt-4'>
+  <>
+    <Clock/>
+    <div className='container mt-4 '>
+    
       <div className='row'>
         <div className='col8'>
           <TodoList 
@@ -105,6 +112,7 @@ function Home() {
         </div>
       </div>
     </div>
+  </>
   )
 }
 
