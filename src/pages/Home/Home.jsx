@@ -94,7 +94,7 @@ function Home() {
       <Clock/>
     </div>
 
-    <div className='' >
+    <div className='flex justify-around ml-8 mr-8 text-xl max-sm:flex-col-reverse' >
     
 
       <TodoList 

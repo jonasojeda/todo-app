@@ -6,11 +6,10 @@ import Todo from '../Todo/Todo'
 const TodoList = ({todos, todoDelete, todoToogleChange,setTodoEdit}) => {
     
   return (
-    <div>
-        <h1>TodoList</h1>
+    <div className='flex flex-col h-full w-3/5'>
         {
           todos.length === 0 
-          ?(<div className='alert alert-primary'>No hay tareas a realizar </div>)
+          ?(<div className=' rounded-lg bg-blue-50 border-t border-b text-blue-400 px-4 py-3 w-full text-center '>No hay tareas a realizar </div>)
           
           :todos.map(todo =>{ 
             return <Todo 

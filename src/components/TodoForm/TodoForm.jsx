@@ -66,26 +66,25 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
 
   
   return (
-    <div>
+    <div className='w-1/3'>
         <h1>{todoEdit?'Editar tarea':'Nueva Tarea'}</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='flex flex-col '>
           <input 
             type="text" 
             placeholder='Titulo' 
-            className='form-control' 
             value={title}
             name='title'
             onChange={handleInputChange}
           />
           <textarea 
             placeholder='Description' 
-            className='form-control mt-2'
+            
             value={description}
             name='description'
             onChange={handleInputChange}
           />
           {errors&&
-            <div class="alert alert-danger mt-2" role="alert">
+            <div  role="alert">
               {errors}
             </div>  
             
@@ -93,19 +92,19 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
 
           {
             successMessage &&
-            <div class="alert alert-success mt-2" role="alert">
+            <div >
             {successMessage}
           </div>  
           }
           <button 
-            className='btn btn-primary btn-block mt-2'
+           
           >{todoEdit?'Actualizar tarea':'Agregar tarea'}
           </button>
 
           {todoEdit &&
             <button
             onClick={()=>{setTodoEdit(null)}} 
-            className='btn btn-warning mt-2 btn-block'>
+            >
               Cancelar edicion
             </button>
           }
