@@ -8,14 +8,21 @@ const Todo = ({todo, todoDelete,todoToogleChange,setTodoEdit}) => {
     
     <>
   
-    <div class="bg-white w-full sm:w-1/2 lg:w-96 border border-gray-200 divide-y divide-gray-200">
-      <details>
-        <summary class="question py-3 px-4 cursor-pointer select-none w-full outline-none flex">
-          <div onClick={()=>setAccordion(!accordion)}>{accordion ? '-':'+' }</div>
-          <p>{todo.title}</p>
-          <button onClick={()=>{todoDelete(todo.id)}}>el</button>
+    <div class="bg-white w-full border border-gray-200 divide-y divide-gray-200 mt-2 shadow-xl sm:w-full">
+      <details >
+        <summary  onClick={()=>setAccordion(!accordion)} class="question py-3 px-4 cursor-pointer select-none outline-none flex justify-between bg-sky-400 rounded-t-lg">
+          <div>
+            {/* <div className='mr-1' >{accordion ? '-':'+' }</div> */}
+            <p className={todo.completed?'line-through':''}>{todo.title}</p>
+          </div>
+
+          <div className='flex justify-between'>
+            <button onClick={()=>todoToogleChange(todo.id)}>ter-</button>
+            <button onClick={()=>setTodoEdit(todo)} >edi-</button>
+            <button onClick={()=>{todoDelete(todo.id)}}>eli-</button>
+          </div>
         </summary>
-        <p class="pt-1 pb-3 px-4">{todo.description}</p>
+        <p class="pt-1 pb-3 px-4 bg-sky-200 rounded-b-lg">{todo.description}</p>
       </details>
     </div>
   
@@ -24,29 +31,3 @@ const Todo = ({todo, todoDelete,todoToogleChange,setTodoEdit}) => {
 }
 
 export default Todo
-
-{/* <div>
-            <div>
-                <h3>
-                    {todo.title}
-                    <button
-                      onClick={()=>todoToogleChange(todo.id)}
-                      className= {todo.completed? 'btn btn-sm btn-success ml-2':'btn btn-sm btn-outline-success ml-2'} >
-                        {todo.completed?'Terminado': 'Terminar' }
-                      </button>
-                </h3>
-                <p className='card-text'>
-                    {todo.description}
-                </p>
-                
-                <div className='d-flex justify-content-end'>
-                    <button
-                    onClick={()=>setTodoEdit(todo)} 
-                    className='btn btn-sm btn-outline-primary mr-2'>Editar</button>
-
-                    <button
-                    onClick={()=>todoDelete(todo.id)}
-                    className='btn btn-sm btn-outline-danger'>Eliminar</button>
-                </div>
-            </div>
-        </div> */}

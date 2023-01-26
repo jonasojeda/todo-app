@@ -66,10 +66,11 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
 
   
   return (
-    <div className='w-1/3'>
-        <h1>{todoEdit?'Editar tarea':'Nueva Tarea'}</h1>
+    <div className='w-1/3 max-sm:w-full'>
+        <h1 className='mb-3'>{todoEdit?'Editar tarea':'Nueva Tarea'}</h1>
         <form onSubmit={handleSubmit} className='flex flex-col '>
           <input 
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             type="text" 
             placeholder='Titulo' 
             value={title}
@@ -78,13 +79,13 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
           />
           <textarea 
             placeholder='Description' 
-            
+            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"'
             value={description}
             name='description'
             onChange={handleInputChange}
           />
           {errors&&
-            <div  role="alert">
+            <div class="mt-2 bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert" >
               {errors}
             </div>  
             
@@ -92,17 +93,18 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
 
           {
             successMessage &&
-            <div >
+            <div  class=" mt-2 bg-green-100 rounded-lg py-5 px-6 mb-4 text-base text-green-700 mb-3" role="alert" >
             {successMessage}
           </div>  
           }
-          <button 
+          <button class="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
            
           >{todoEdit?'Actualizar tarea':'Agregar tarea'}
           </button>
 
           {todoEdit &&
             <button
+            class="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={()=>{setTodoEdit(null)}} 
             >
               Cancelar edicion

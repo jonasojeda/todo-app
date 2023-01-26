@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Clock from '../../components/Clock/Clock'
+import Navbar from '../../components/NavBar/Navbar'
 import TodoForm from '../../components/TodoForm/TodoForm'
 import TodoList from '../../components/TodoList/TodoList'
 
@@ -88,13 +89,14 @@ function Home() {
   }
 
   return (
-  <div className='home-card w-full h-full  lg:w-4/5 lg:h-4/5 lg:rounded-2xl lg:shadow-2xl'>
-
+  <div>
+    <Navbar/>
+    <div className='home-card w-full h-full  lg:w-4/5 lg:h-4/5 lg:rounded-2xl lg:shadow-2xl max-sm:border-none'>
     <div>
       <Clock/>
     </div>
 
-    <div className='flex justify-around ml-8 mr-8 text-xl max-sm:flex-col-reverse' >
+    <div className='flex justify-around ml-8 mr-8 text-xl max-sm:flex-col-reverse ' >
     
 
       <TodoList 
@@ -117,6 +119,8 @@ function Home() {
     </div>
 
   </div>
+  </div>
+  
   )
 }
 
