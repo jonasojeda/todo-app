@@ -1,5 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
+import { AiOutlineDelete } from 'react-icons/ai';
+import { BiEdit } from 'react-icons/bi';
+import { AiOutlineCheckSquare } from 'react-icons/ai';
+import { ImCheckboxUnchecked } from 'react-icons/im';
 
 const Todo = ({todo, todoDelete,todoToogleChange,setTodoEdit}) => {
   const [accordion, setAccordion] = useState(false)
@@ -17,9 +21,9 @@ const Todo = ({todo, todoDelete,todoToogleChange,setTodoEdit}) => {
           </div>
 
           <div className='flex justify-between'>
-            <button onClick={()=>todoToogleChange(todo.id)}>ter-</button>
-            <button onClick={()=>setTodoEdit(todo)} >edi-</button>
-            <button onClick={()=>{todoDelete(todo.id)}}>eli-</button>
+            <button className='mr-4' onClick={()=>todoToogleChange(todo.id)}>{todo.completed? <AiOutlineCheckSquare/>: <ImCheckboxUnchecked/>}</button>
+            <button className='mr-4' onClick={()=>setTodoEdit(todo)} ><BiEdit/></button>
+            <button onClick={()=>{todoDelete(todo.id)}}><AiOutlineDelete/></button>
           </div>
         </summary>
         <p class="pt-1 pb-3 px-4 bg-sky-200 rounded-b-lg">{todo.description}</p>

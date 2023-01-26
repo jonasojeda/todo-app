@@ -70,7 +70,7 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
         <h1 className='mb-3'>{todoEdit?'Editar tarea':'Nueva Tarea'}</h1>
         <form onSubmit={handleSubmit} className='flex flex-col '>
           <input 
-            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+            className='bg-transparent shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             type="text" 
             placeholder='Titulo' 
             value={title}
@@ -79,7 +79,7 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
           />
           <textarea 
             placeholder='Description' 
-            className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"'
+            className='mt-3 resize-none h-36 bg-transparent shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"'
             value={description}
             name='description'
             onChange={handleInputChange}

@@ -3,7 +3,19 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    
 }
 .nav-bar-logo{
-    height: 100px;
+    height: 80px;
+    
 }
+
+@media only screen and (max-width: 425px) {
+    /* For mobile phones: */
+    .nav-bar-logo {
+      height: 60px;
+    }
+    .nav-bar{
+        justify-content: center;
+    }
+  }

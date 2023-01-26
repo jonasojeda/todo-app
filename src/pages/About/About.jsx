@@ -1,8 +1,9 @@
 import React from 'react'
+import AboutMeCard from '../../components/AboutMeCard/AboutMeCard'
 
 function About() {
   return (
-    <div>About</div>
+    <AboutMeCard/>
   )
 }
 

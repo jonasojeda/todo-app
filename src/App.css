@@ -10,6 +10,10 @@
   border: solid 1px #000;
 }
 
+.gardient{
+  background: rgb(51,238,255);
+  background: linear-gradient(154deg, rgba(51,238,255,1) 24%, rgba(92,180,230,1) 82%);
+}
 
 /* .App {
   text-align: center;
