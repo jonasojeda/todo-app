@@ -3,7 +3,10 @@ import AboutMeCard from '../../components/AboutMeCard/AboutMeCard'
 
 function About() {
   return (
-    <AboutMeCard/>
+    <div className='flex justify-center align-middle'>
+      <AboutMeCard/>
+    </div>
+    
   )
 }
 
