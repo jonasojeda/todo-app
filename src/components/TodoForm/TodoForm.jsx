@@ -34,22 +34,22 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
 
     //Agregar tarea
     if(title.trim() === ''){
-      setErrors('Debes indicar un titulo')
+      setErrors('You must indicate a title.')
       return ;
     }
 
     if(description.trim() === ''){
-      setErrors('Debes indicar una descripcion')
+      setErrors('You must provide a description.')
       return ;
     }
 
     if(todoEdit){
       //Actualizar Todo
       todoUpdate(formValues)
-      setSuccessMessage('Tarea actualizada con exito')
+      setSuccessMessage('Task updated successfully.')
     }else{
       todoAdd(formValues);
-      setSuccessMessage('Tarea agregada con exito')
+      setSuccessMessage('Task added successfully.')
       setFormValues(initialFormValues)
       
     }
@@ -67,12 +67,12 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
   
   return (
     <div className='w-1/3 max-sm:w-full'>
-        <h1 className='mb-3'>{todoEdit?'Editar tarea':'Nueva Tarea'}</h1>
+        <h1 className='mb-3'>{todoEdit?'Edit Task':'New Task'}</h1>
         <form onSubmit={handleSubmit} className='flex flex-col '>
           <input 
             className='bg-transparent shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
             type="text" 
-            placeholder='Titulo' 
+            placeholder='Title' 
             value={title}
             name='title'
             onChange={handleInputChange}
@@ -99,7 +99,7 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
           }
           <button class="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
            
-          >{todoEdit?'Actualizar tarea':'Agregar tarea'}
+          >{todoEdit?'Update Task':'Add Task'}
           </button>
 
           {todoEdit &&
@@ -107,7 +107,7 @@ const TodoForm = ({todoAdd,todoEdit,todoUpdate,setTodoEdit}) => {
             class="mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={()=>{setTodoEdit(null)}} 
             >
-              Cancelar edicion
+              Cancel Edit
             </button>
           }
         </form>
